@@ -18,6 +18,9 @@ monthly_counts = fixed_df.groupby('Month')[bike_path].sum()
 most_popular_month = monthly_counts.idxmax()
 most_popular_month_count = monthly_counts.max()
 
+# Вивести найпопулярніший місяць і його значення
+print(f'Найпопулярніший місяць: {most_popular_month}, кількість велосипедистів: {most_popular_month_count}')
+
 plt.figure(figsize=(10, 6))
 monthly_counts.plot(kind='bar', color='skyblue', edgecolor='black')
 plt.title(f'Щомісячна кількість велосипедистів на велодоріжці {bike_path}')
@@ -26,6 +29,7 @@ plt.ylabel('Загальна кількість велосипедистів')
 plt.xticks(rotation=0)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
+# Виділити найпопулярніший місяць кольором
 plt.bar(most_popular_month - 1, most_popular_month_count, color='orange')
 
 plt.show()
